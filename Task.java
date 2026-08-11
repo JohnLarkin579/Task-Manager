@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Task {
     private String title;
     private String text;
-    private String filePath = "/Users/larkin/Projects/Task-Manager/Task-Manager/ListOfTasks";
+    private String filePath = "/Users/larkin/Projects/Pet1/Task-Manager/ListOfTasks";
 
     public String getTitle() {
         return this.title;
