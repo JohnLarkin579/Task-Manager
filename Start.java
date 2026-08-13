@@ -65,7 +65,7 @@ public class Start {
                  */
                 TaskReader.printTasksTitle();
                 System.out.print("Delete file -> ");
-                Path path = Path.of(TaskBuilder.getFolder().toString() + File.separator + userInput.nextLine());
+                Path path = Path.of(TaskBuilder.getFolder() + File.separator + userInput.nextLine());
                 try {
                     Files.delete(path);
                 } catch (IOException e) {

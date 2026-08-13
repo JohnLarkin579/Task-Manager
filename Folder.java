@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Класс по патерну Singleton для работы с файлами
+ */
 public class Folder {
     private static final Folder INSTANCE = new Folder();
     private String path = Path.of("Task-Manager/ListOfTasks" ).toString()+ File.separator;
