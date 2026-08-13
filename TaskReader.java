@@ -16,12 +16,14 @@ public class TaskReader {
 
     //reading the task's path
     public static void loadTaskPath() {
+        TaskBuilder.refresh();
         for (File file : TaskBuilder.getFolderOfPaths()) {
             taskPathList.add(file);
         }
     }
 
     public static void loadTaskTitle() {
+        TaskBuilder.refresh();
         for (String file : TaskBuilder.getFolderOfTitles()) {
             taskTitleList.add(file);
         }

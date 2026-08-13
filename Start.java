@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Start {
@@ -25,6 +24,17 @@ public class Start {
             }
 
             else if (message.equals("add")) {
+                /*
+                ввести название задачи
+                проверить на пустоту -> ошибка
+                существует ли файл
+                да -> перезаписать задачу?
+                    нет -> выход
+                    да -> ввести текст задачи
+                нет -> ввести текст задачи
+                проверить на пустоту -> ошибка
+                создать задачу
+                 */
                 System.out.print("Add title -> ");
                 String title = userInput.nextLine();
 
@@ -35,10 +45,24 @@ public class Start {
             }
 
             else if (message.equals("read")) {
+                /*
+                очистить список
+                прочитать содержимое папки
+                вывести на экран список
+                 */
+                TaskReader.loadTaskPath();
+                TaskReader.loadTaskTitle();
                 TaskReader.printTasksTitle();
             }
 
             else if (message.equals("remove")) {
+                /*
+                показать список задач
+                ввести название файла
+                проверить существует ли файл
+                да -> удалить
+                нет -> месседж об ошибке
+                 */
                 TaskReader.printTasksTitle();
                 System.out.print("Delete file -> ");
                 Path path = Path.of(TaskBuilder.getFolder().toString() + File.separator + userInput.nextLine());
@@ -47,9 +71,7 @@ public class Start {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                TaskReader.getTaskPathList().clear();
-                TaskReader.getTaskTitleList().clear();
-                TaskReader.getTaskTitleList();
+                TaskReader.loadTaskPath();
                 TaskReader.loadTaskTitle();
             }
 
