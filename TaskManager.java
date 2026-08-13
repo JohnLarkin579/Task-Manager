@@ -48,7 +48,8 @@ public abstract class TaskManager {
         Folder.getInstance().deleteFile(title);
     }
 
-    public void showTask() {
-
+    public static void showTask() {
+        TaskReader.loadTitleList();
+        TaskReader.printTitleList();
     }
 }

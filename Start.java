@@ -1,18 +1,12 @@
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Start {
     private static final String MENU = "----------------Action selector----------------\n(A)dd task, (D)elete file, (R)ead text, (E)xit:";
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        if (TaskBuilder.getFolderOfPaths() != null) {
-            TaskReader.loadTaskPath();
-        }
-        if (TaskBuilder.getFolderOfTitles() != null) {
-            TaskReader.loadTaskTitle();
+
+        if (TaskReader.getArrayOfTitles().length > 0) {
+            TaskReader.loadTitleList();
         }
 
         System.out.println(MENU);
@@ -25,6 +19,7 @@ public class Start {
             }
 
             else if ("d".equals(message.toLowerCase())) {
+                TaskManager.showTask();
                 System.out.print("Write file name to delete -> ");
                 String title = userInput.nextLine();
                 TaskManager.deleteTask(title);
@@ -35,14 +30,7 @@ public class Start {
             }
 
             else if ("r".equals(message.toLowerCase())) {
-                /*
-                очистить список
-                прочитать содержимое папки
-                вывести на экран список
-                 */
-                TaskReader.loadTaskPath();
-                TaskReader.loadTaskTitle();
-                TaskReader.printTasksTitle();
+                TaskManager.showTask();
             }
 
             else {

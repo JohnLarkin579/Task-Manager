@@ -8,7 +8,7 @@ import java.nio.file.Path;
  */
 public class Folder {
     private static final Folder INSTANCE = new Folder();
-    private String path = Path.of("Task-Manager/ListOfTasks" ).toString()+ File.separator;
+    private static Path path = Path.of("Task-Manager/ListOfTasks");
 
     private Folder() {}
 
@@ -16,7 +16,7 @@ public class Folder {
         return INSTANCE;
     }
 
-    public String getPath() {
+    public Path getPath() {
         return path;
     }
 
@@ -40,7 +40,7 @@ public class Folder {
      */
     public void deleteFile(String title) {
         try {
-            Files.delete(Path.of(getPath() + title + ".txt"));
+            Files.delete(Path.of(getPath() + File.separator + title + ".txt"));
         } catch (IOException e) {
             System.out.println("File not exists");
         }
