@@ -5,8 +5,6 @@
 //
 //public class FolderTD {
 //    static void main(String[] args) {
-//        Folder folder = Folder.getInstance();
-//
-//
+//        Task task = new Task(, "lajfdslkj");
 //    }
 //}

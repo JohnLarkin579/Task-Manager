@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Start {
+    private static final String MENU = "----------------Action selector----------------\n(A)dd task, (D)elete file, (R)ead text, (E)xit:";
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         if (TaskBuilder.getFolderOfPaths() != null) {
@@ -14,37 +15,26 @@ public class Start {
             TaskReader.loadTaskTitle();
         }
 
-        System.out.print("Choose action: add / remove / read / exit-> ");
+        System.out.println(MENU);
 
         while (true) {
             String message = userInput.nextLine();
 
-            if (message.equals("exit")) {
+            if ("e".equals(message.toLowerCase())) {
                 return;
             }
 
-            else if (message.equals("add")) {
-                /*
-                ввести название задачи
-                проверить на пустоту -> ошибка
-                существует ли файл
-                да -> перезаписать задачу?
-                    нет -> выход
-                    да -> ввести текст задачи
-                нет -> ввести текст задачи
-                проверить на пустоту -> ошибка
-                создать задачу
-                 */
-                System.out.print("Add title -> ");
+            else if ("d".equals(message.toLowerCase())) {
+                System.out.print("Write file name to delete -> ");
                 String title = userInput.nextLine();
-
-                System.out.print("Write text -> ");
-                String text = userInput.nextLine();
-
-                new Task(title, text);
+                TaskManager.deleteTask(title);
             }
 
-            else if (message.equals("read")) {
+            else if ("a".equals(message.toLowerCase())) {
+                TaskManager.addTask();
+            }
+
+            else if ("r".equals(message.toLowerCase())) {
                 /*
                 очистить список
                 прочитать содержимое папки
@@ -55,27 +45,11 @@ public class Start {
                 TaskReader.printTasksTitle();
             }
 
-            else if (message.equals("remove")) {
-                /*
-                показать список задач
-                ввести название файла
-                проверить существует ли файл
-                да -> удалить
-                нет -> месседж об ошибке
-                 */
-                TaskReader.printTasksTitle();
-                System.out.print("Delete file -> ");
-                Path path = Path.of(TaskBuilder.getFolder() + File.separator + userInput.nextLine());
-                try {
-                    Files.delete(path);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                TaskReader.loadTaskPath();
-                TaskReader.loadTaskTitle();
+            else {
+                System.out.println("Invalid input!");
             }
 
-            System.out.print("Choose action: add / remove / read / exit-> ");
+            System.out.println(MENU);
 
         }
 
