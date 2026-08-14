@@ -1,6 +1,4 @@
-import javax.imageio.IIOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 /**
