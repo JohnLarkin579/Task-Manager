@@ -1,3 +1,5 @@
+package io.github.johnlarkin579.taskmanager;
+
 import java.util.Scanner;
 
 public class Start {

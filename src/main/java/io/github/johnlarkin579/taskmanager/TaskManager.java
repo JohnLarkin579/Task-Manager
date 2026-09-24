@@ -1,3 +1,5 @@
+package io.github.johnlarkin579.taskmanager;
+
 import java.nio.file.Files;
 import java.util.Scanner;
 
