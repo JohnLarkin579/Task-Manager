@@ -15,7 +15,7 @@ public class TaskReader {
     private static String[] arrayOfTitles = file.list();
     private static List<String> titleList = new ArrayList<>();
 
-
+    //
     public static String[] getArrayOfTitles() {
         return arrayOfTitles;
     }

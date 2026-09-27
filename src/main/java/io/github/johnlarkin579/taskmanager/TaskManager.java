@@ -42,6 +42,8 @@ public abstract class TaskManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        userInput.close();
     }
 
     public static void deleteTask(String title) {

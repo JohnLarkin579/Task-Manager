@@ -8,9 +8,9 @@ import java.nio.file.Path;
 /**
  * Класс по патерну Singleton для работы с файлами
  */
-public class Folder {
-    private static final Folder INSTANCE = new Folder();
-    private static Path path = Path.of("Task-Manager/ListOfTasks");
+public class Folder { // !!REMOVE THE SINGELETON CLASS!!
+    private static final Folder INSTANCE = new Folder(); 
+    private static Path path = Path.of("Task-Manager/ListOfTasks"); // !!DELETE THE LOCAL WAY!!
 
     private Folder() {}
 
@@ -29,7 +29,7 @@ public class Folder {
      */
     public void createFile(String title) {
         try {
-            Files.createFile(Path.of(getInstance().getPath() + title + ".txt"));
+            Files.createFile(Path.of(getInstance().getPath() + title + ".txt")); // CHECK MORE USIFUL METHOD
         } catch (IOException e) {
             System.out.println("File exists");
         }

@@ -40,9 +40,7 @@ public class Start {
             }
 
             System.out.println(MENU);
-
+            userInput.close();
         }
-
-
     }
 }
